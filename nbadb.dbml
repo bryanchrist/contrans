@@ -33,6 +33,7 @@ Table playergame as PG {
   game_player_id varchar [pk]
   game_id varchar 
   player_id varchar 
+  Team_Abbrev varchar
   starter int
   mp varchar
   fg int
@@ -59,5 +60,6 @@ Table playergame as PG {
 }
 Ref: PG.game_id > G.game_id
 Ref: PG.game_id > TG.game_id
+Ref: PG.Team_Abbrev < TG.Team_Abbrev
 Ref: TG.game_id > G.game_id
 Ref: PG.player_id > P.player_id
