@@ -9,6 +9,17 @@ services:
             - "8890:8888"
         networks: 
             - dbnetwork
+    
+    mongo:
+        image: mongo:latest
+        env_file:
+            - .env
+        volumes:
+            - mongodata:/data/db
+        ports:
+            - "27017:27017"
+        networks:
+            - dbnetwork
         
     postgres:
         image: postgres:latest
@@ -23,6 +34,7 @@ services:
 
 volumes:
     postgresdata:
+    mongodata:
 
 networks:
     dbnetwork:
